@@ -1,1 +1,48 @@
+def sumadivisores(numero)
+	suma = 0
+	for i in 1..numero-1
+		if numero%i == 0
+			suma = suma + i
+		end
+	end
+	return suma
+end
 
+def esnumeroperfecto(numero)
+	sumita = sumadivisores(numero)
+
+	if sumita == numero
+		return true # si cumple
+	else
+		return false #no cumple
+	end
+end
+
+def imprimir_resultado(numero)
+	puts
+	puts "Numero : " + numero.to_s
+	puts "Suma : " + sumadivisores(numero).to_s
+	esperfecto = esnumeroperfecto(numero)
+
+	if esperfecto == true
+		puts "Si es numero perfecto"
+	else
+		puts "No es numero perfecto"
+	end
+end
+
+imprimir_resultado(6)
+imprimir_resultado(5)
+
+puts "*********************"
+
+#Parte 2
+numero = 1
+numeroperfecto = 0
+while numeroperfecto < 4
+	if esnumeroperfecto(numero) #= 6
+		puts numero.to_s
+		numeroperfecto = numeroperfecto + 1
+	end
+	numero = numero + 1
+end
